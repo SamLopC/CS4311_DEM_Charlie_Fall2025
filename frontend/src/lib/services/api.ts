@@ -1,7 +1,7 @@
 import axios from 'axios';
-import type { Project, ProjectCreate, ProjectUpdate, Host, Container, ApiResponse } from '../types';
+import type { Project, ProjectCreate, ProjectUpdate, Host, Container, ApiResponse } from '$lib/types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -10,7 +10,6 @@ const api = axios.create({
   },
 });
 
-// Project APIs
 export const projectApi = {
   getAll: async (includeArchived = false): Promise<Project[]> => {
     const response = await api.get<Project[]>('/api/projects', {
@@ -78,5 +77,3 @@ export const projectApi = {
     return response.data;
   },
 };
-
-export default api;

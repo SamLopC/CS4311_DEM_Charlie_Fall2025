@@ -9,9 +9,6 @@ export interface Project {
   eventType: EventType;
   archived: boolean;
   hostCount?: number;
-  topologyMap?: Record<string, any>;
-  vulnerabilityDetails?: Array<Record<string, any>>;
-  exploitationDetails?: Array<Record<string, any>>;
 }
 
 export interface ProjectCreate {

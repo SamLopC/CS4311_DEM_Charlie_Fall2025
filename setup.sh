@@ -1,9 +1,7 @@
 #!/bin/bash
 
-Setup Script
-
 echo "================================"
-echo "SUBSYSTEM Setup"
+echo "Project Manager - SvelteKit Setup"
 echo "================================"
 echo ""
 
@@ -27,8 +25,9 @@ echo "Setting up backend..."
 cd backend
 
 if [ ! -f ".env" ]; then
-    echo "Creating .env file from .env.example..."
+    echo "⚠️  Creating .env file from .env.example..."
     cp .env.example .env
+    echo "⚠️  Please edit backend/.env with your Neo4j credentials!"
 fi
 
 echo "Installing Python dependencies..."
@@ -38,13 +37,8 @@ cd ..
 
 # Frontend setup
 echo ""
-echo "Setting up frontend..."
+echo "Setting up SvelteKit frontend..."
 cd frontend
-
-if [ ! -f ".env" ]; then
-    echo "Creating .env file from .env.example..."
-    cp .env.example .env
-fi
 
 echo "Installing Node.js dependencies..."
 npm install
@@ -56,13 +50,15 @@ echo "================================"
 echo "✅ Setup Complete!"
 echo "================================"
 echo ""
+echo "⚠️  IMPORTANT: Edit backend/.env with your Neo4j credentials"
+echo ""
 echo "To start the application:"
 echo ""
 echo "Terminal 1 (Backend):"
 echo "  cd backend"
 echo "  python main.py"
 echo ""
-echo "Terminal 2 (Frontend):"
+echo "Terminal 2 (Frontend - SvelteKit):"
 echo "  cd frontend"
 echo "  npm run dev"
 echo ""
